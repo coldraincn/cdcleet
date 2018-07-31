@@ -15,10 +15,10 @@ plugins {
 }
 
 // Define the main class for the application
-mainClassName = 'App'
+mainClassName = 'com.coldraincn.cdcleet.easy.TwoSum'
 jar {
     manifest {
-        attributes 'Main-Class': 'App'
+        attributes 'Main-Class': 'com.coldraincn.cdcleet.easy.TwoSum'
     }
     // baseName = 'gradle'
     // version =  '0.1.0'

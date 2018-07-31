@@ -1,5 +1,6 @@
 package com.coldraincn.cdcleet.easy;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -14,6 +15,9 @@ import java.util.HashMap;
 因为 nums[0] + nums[1] = 2 + 7 = 9
 所以返回 [0, 1]
  */
+/**
+ * 两次循环，时间O(N),空间O(N)
+ */
 public class TwoSum{
     public int[] twoSum(int[] nums,int target){
         int[] result=new int[2];
@@ -23,11 +27,18 @@ public class TwoSum{
         }
         for(int i=0;i<nums.length;i++){
             int j=target-nums[i];
-            if(map1.containsKey(j)){
+            if(map1.containsKey(j)&&map1.get(j)!=i){
                 result[0]=map1.get(j);
                 result[1]=i;
             }
         }
         return result;
+    }
+    public static void main(String[] args) {
+        int[] nums={2, 7, 11, 15};
+        int target=3;
+        TwoSum twosum=new TwoSum();
+        int[] result2=twosum.twoSum(nums, target);
+        System.out.println(Arrays.toString(result2));
     }
 }
