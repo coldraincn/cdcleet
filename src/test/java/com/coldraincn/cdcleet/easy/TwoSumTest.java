@@ -8,7 +8,6 @@ public class TwoSumTest{
     public void testTwosum(){
         int[] nums={2, 7, 11, 15};
         int target=9;
-        int[] result={0,1};
         TwoSum twosum=new TwoSum();
         int[] result2=twosum.twoSum(nums, target);
         assertEquals(0,result2[0]);

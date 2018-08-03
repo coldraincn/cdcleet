@@ -35,7 +35,6 @@ public class TwoSum{
             }
      
             int[] index = new int[max - min+1];
-            target = target ;
             int other =0;
             for (int i = 0; i < nums.length; i++) {
                     other = target - nums[i];
