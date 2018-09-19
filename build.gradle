@@ -15,10 +15,10 @@ plugins {
 }
 
 // Define the main class for the application
-mainClassName = 'com.coldraincn.cdcleet.easy.RomanToInt'
+mainClassName = 'com.coldraincn.cdcleet.easy.LongestCommonPrefix'
 jar {
     manifest {
-        attributes 'Main-Class': 'com.coldraincn.cdcleet.easy.TwoSum'
+        attributes 'Main-Class': 'com.coldraincn.cdcleet.easy.LongestCommonPrefix'
     }
     // baseName = 'gradle'
     // version =  '0.1.0'

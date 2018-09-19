@@ -19,12 +19,44 @@ package com.coldraincn.cdcleet.easy;
  */
 public class LongestCommonPrefix{
     public String longestCommonPrefix(String[] strs){
-        int min=0;
-        for(int i=0;i<strs.length;i++){
-            if(strs[i].length()<strs[min].length()){
-                min=i;
-            }
+        int length = strs.length;
+        if(length==0){
+            return "";
         }
-        return "";
+        String prefixString = lcpMerge(strs, 0, length-1);
+        return prefixString;
+    }
+  
+    public static String lcpMerge(String[] strs,int min,int max){
+        if(min==max){
+            return strs[min];
+        }
+        int mid=(max-min)/2;
+        String minString=lcpMerge(strs,min,mid+min);
+        String maxString=lcpMerge(strs,mid+min+1, max);
+        int lengthMin=minString.length();
+        int lengthMax=maxString.length();
+        
+        int minCount=lengthMin;
+        if(lengthMin>lengthMax){
+            minCount=lengthMax;
+        }
+        StringBuilder sb=new StringBuilder();
+        for(int i=0;i<minCount;i++){
+            if(minString.charAt(i)!=maxString.charAt(i)){
+                break;
+            }
+            sb.append(minString.charAt(i));
+        }
+        return sb+"";
+
+    }
+    public static void main(String[] args){
+        //String[] strs = {"flower","flow","flight"};
+        String[] strs = {"flcaa","","flcaa","flower"};
+        LongestCommonPrefix lcp=new LongestCommonPrefix();
+        String prefix=lcp.longestCommonPrefix(strs);
+        System.out.println(prefix);
+
     }
 }
