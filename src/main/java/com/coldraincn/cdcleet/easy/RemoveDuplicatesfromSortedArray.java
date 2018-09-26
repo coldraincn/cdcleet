@@ -37,6 +37,20 @@ for (int i = 0; i < len; i++) {
  */
 class RemoveDuplicatesfromSortedArray {
     public int removeDuplicates(int[] nums) {
-        
+         int length=nums.length;
+         int i = 0;
+         for(int j=i+1;j<length;j++){
+             if(nums[i]!=nums[j]){
+                 nums[++i]=nums[j];
+             }
+         }
+         return i+1;
+             
+    }
+    public static void main(String[] args){
+        RemoveDuplicatesfromSortedArray rdfsa=new RemoveDuplicatesfromSortedArray();
+        int[] nums={0,0,1,1,1,2,2,3,3,4};
+        int length=rdfsa.removeDuplicates(nums);
+        System.out.println(length);
     }
 }
