@@ -17,8 +17,6 @@ package com.coldraincn.cdcleet.easy;
 
 给定 nums = [0,1,2,2,3,0,4,2], val = 2,
 
-函数应该返回新的长度 5, 并且 nums 中的前五个元素为 0, 1, 3, 0, 4。
-
 注意这五个元素可为任意顺序。
 
 你不需要考虑数组中超出新长度后面的元素。
@@ -41,6 +39,23 @@ for (int i = 0; i < len; i++) {
  */
 public class RemoveElement{
     public int removeElement(int[] nums, int val) {
+        int length=nums.length;
+        int j=0;
+        for(int i=j;i<length;i++){
+            if(nums[i]!=val){
+                nums[j++]=nums[i];
+            }
+        }
+        return j;
+    }
+    public static void main(String[] args) {
+        int nums[] = {0,1,2,2,3,0,4,2};
+        RemoveElement re = new RemoveElement();
+        int n = re.removeElement(nums, 3);
+        System.out.println(n);
         
     }
+
+    
+    
 }
