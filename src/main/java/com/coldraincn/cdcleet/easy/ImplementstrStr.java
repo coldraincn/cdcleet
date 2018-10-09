@@ -21,6 +21,34 @@ package com.coldraincn.cdcleet.easy;
 
 public class ImplementstrStr{
     public int strStr(String haystack, String needle) {
-        
+        int N = haystack.length();
+        int M = needle.length();
+        if(M==0){
+            return 0;
+        }
+        if(N<M){
+            return -2;
+        }
+        int i,j;
+        for(i=0,j=0;i<N&&j<M;i++){
+            if(haystack.charAt(i)==needle.charAt(j)){
+                j++;
+            }else{
+                i-=j;
+                j=0;
+                
+            }
+        } 
+        if(j==M){
+            return i-M;
+        }
+        return -1;
+    }
+    public static void main(String[] args){
+        String haystack="mississippi";
+        String needle="issip";
+        ImplementstrStr iss=new ImplementstrStr();
+        int n=iss.strStr(haystack, needle);
+        System.out.println(n);
     }
 }
