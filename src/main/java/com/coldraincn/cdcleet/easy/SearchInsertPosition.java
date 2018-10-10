@@ -24,6 +24,21 @@ package com.coldraincn.cdcleet.easy;
 
 public class SearchInsertPosition{
     public int searchInsert(int[] nums, int target) {
+        int length=nums.length;
+        int i;
+        for(i=0;i<length;i++){
+            if(nums[i]>=target){
+                return i;
+            }
+        }
+        return i;
         
+    }
+    public static void main(String[] args){
+        int[] nums={1,3,5,6};
+        int target=7;
+        SearchInsertPosition sip=new SearchInsertPosition();
+        int n=sip.searchInsert(nums, target);
+        System.out.println(n);
     }
 }
