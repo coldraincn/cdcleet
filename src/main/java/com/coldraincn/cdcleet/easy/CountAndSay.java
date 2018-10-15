@@ -1,6 +1,6 @@
 package com.coldraincn.cdcleet.easy;
 /**
- * 报数序列是指一个整照其中的整数的顺序进数序列，按行报数，得到下一个数。其前五项如下：
+报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下：
 
 1.     1
 2.     11
@@ -28,6 +28,31 @@ package com.coldraincn.cdcleet.easy;
  */
 public class CountAndSay{
     public String countAndSay(int n) {
-        
+        if(n==1){
+            return 1+"";
+        }
+        String last = countAndSay(n-1)+'s';
+        int num=1;
+        StringBuilder sb = new StringBuilder();
+
+        for(int i=0;i<last.length()-1;i++){
+             char bar=last.charAt(i);
+             char foo=last.charAt(i+1);
+             if(bar==foo){
+                num+=1;
+             }else{
+                sb.append(num).append(bar);
+                num=1;
+             }
+             
+        }
+        return sb.toString();
+    }
+    public static void main(String[] args){
+        int n=4;
+        CountAndSay cas=new CountAndSay();
+        String result = cas.countAndSay(n);
+        System.out.println(result);
+
     }
 }
