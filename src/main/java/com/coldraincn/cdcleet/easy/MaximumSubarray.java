@@ -12,7 +12,21 @@ package com.coldraincn.cdcleet.easy;
 如果你已经实现复杂度为 O(n) 的解法，尝试使用更为精妙的分治法求解。
  */
 public class MaximumSubarray{
-    // public int maxSubArray(int[] nums) {
+    public int maxSubArray(int[] nums) {
         
-    // }
+        int maxNum = nums[0];
+        int subSum = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            subSum = subSum+nums[i] > nums[i]? subSum+nums[i] : nums[i];
+            if (subSum > maxNum) maxNum = subSum;
+        }
+        
+        return maxNum;
+    }
+    public static void main(String[] args){
+        int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
+        MaximumSubarray ms = new MaximumSubarray();
+        int result = ms.maxSubArray(nums);
+        System.out.println(result);
+    }
 }
