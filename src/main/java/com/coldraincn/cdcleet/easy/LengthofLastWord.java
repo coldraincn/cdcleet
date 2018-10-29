@@ -12,5 +12,26 @@ package com.coldraincn.cdcleet.easy;
 输出: 5
  */
 public class LengthofLastWord{
-
+    public int lengthOfLastWord(String s) {
+            int length = s.length();
+            int count=0;
+            for(int i=length-1;i>=0;i--){
+                char word = s.charAt(i);
+                if(word!=' '){
+                    count++;
+                }else{
+                    break;
+                }
+                if(i==0){
+                    count=0;
+                }
+            }
+            return count;
+    }
+    public static void main(String[] args){
+        String s="a";
+        LengthofLastWord llw = new LengthofLastWord();
+        int n= llw.lengthOfLastWord(s);
+        System.out.print(n);
+    }
 }   
