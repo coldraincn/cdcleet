@@ -12,6 +12,7 @@ package com.coldraincn.cdcleet.easy;
  * 输入: [1,2,3] 输出: [1,2,4] 解释: 输入数组表示数字 123。 示例 2:
  * 
  * 输入: [4,3,2,1] 输出: [4,3,2,2] 解释: 输入数组表示数字 4321。
+ * [1,2,          59]
  */
 public class PlusOne {
     public int[] plusOne(int[] digits) {
