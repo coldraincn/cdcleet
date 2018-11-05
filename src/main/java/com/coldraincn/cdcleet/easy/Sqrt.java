@@ -18,5 +18,22 @@ package com.coldraincn.cdcleet.easy;
      由于返回类型是整数，小数部分将被舍去。
  */
 public class Sqrt{
-
+    public int mySqrt(int x) {
+        long n=x;
+        if(x==0||x==1){
+            return x;
+        } 
+        while(x/n<n){
+            n=(x/n+n)/2;
+        } 
+        return (int)n;
+        
+    }
+    public static void main(String[] args){
+        int x=268424449;
+        int ddd=x*x;
+        Sqrt sqrt = new Sqrt();
+        int result = sqrt.mySqrt(x);
+        System.out.println(result);
+    }
 }
