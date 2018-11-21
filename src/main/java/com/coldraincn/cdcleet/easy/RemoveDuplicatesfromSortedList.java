@@ -20,7 +20,32 @@ package com.coldraincn.cdcleet.easy;
  * }
  */
 public class RemoveDuplicatesfromSortedList{
-    // public ListNode deleteDuplicates(ListNode head) {
-        
-    // }
+    public class ListNode{
+        int val;
+        ListNode next;
+        ListNode(int x){
+            val=x;
+        }
+    }
+    public ListNode deleteDuplicates(ListNode head) {
+       ListNode result=head;
+ 
+       while(head!=null){
+           while(head.next!=null&&head.val==head.next.val){
+                head.next=head.next.next;
+           }
+           head=head.next;
+
+       }
+       return result;
+    }
+    public static void main(String[] args){
+        RemoveDuplicatesfromSortedList  rdfsl=new RemoveDuplicatesfromSortedList();
+        ListNode node1=rdfsl.new ListNode(1);
+        ListNode node2=rdfsl.new ListNode(1);
+        ListNode node3=rdfsl.new ListNode(2);
+        node1.next=node2;
+        node2.next=node3;
+        ListNode result=rdfsl.deleteDuplicates(node1);
+    }
 }
