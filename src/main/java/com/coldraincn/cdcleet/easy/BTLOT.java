@@ -28,6 +28,23 @@ public class BTLPT{
    }
 
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        int depth=0;
+        
+        ArrayList<ArrayList<Integer>> btlptList = new ArrayList<ArrayList<Integer>>();
+
+        if(root==null){
+            return null;
+        }
+        if(roo!=null){
+            int width=0;
+            ArrayList<Integer> widthList = new ArrayList<>();
+            
+            btlptList.ad
+
+
+        }
+
+      
         
     }
 
