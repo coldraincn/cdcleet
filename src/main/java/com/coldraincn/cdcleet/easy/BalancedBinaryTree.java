@@ -36,8 +36,26 @@ public class BalancedBinaryTree{
         TreeNode left;
         TreeNode right;
         TreeNode(int x) { val = x; }
-   }
+    }
+    private boolean isBalanced=true;
     public boolean isBalanced(TreeNode root) {
-        
+        if(root==null){
+            return true;
+        }
+        traceTree(root);
+        return isBalanced;      
+    }
+    private int traceTree(TreeNode root){
+        if(root==null||!isBalanced){
+            return 0;
+        }
+        int left = traceTree(root.left);
+        int right = traceTree(root.right);
+        if(Math.abs(left-right)>1){
+            isBalanced=false;
+            return 0;
+        }
+        return 1+Math.max(left,right);
+
     }
 }
