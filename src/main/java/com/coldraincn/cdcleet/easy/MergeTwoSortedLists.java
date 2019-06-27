@@ -10,6 +10,7 @@ package com.coldraincn.cdcleet.easy;
  */
 public class MergeTwoSortedLists {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        
         ListNode resultNode=new ListNode(0);
         ListNode head=resultNode;
         

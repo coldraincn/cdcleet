@@ -18,6 +18,12 @@ package com.coldraincn.cdcleet.easy;
 返回它的最小深度  2.
  */
 public class MinDOBT{
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode(int x) { val = x; }
+   }
 
     public int minDepth(TreeNode root) {
         if(root == null ){
