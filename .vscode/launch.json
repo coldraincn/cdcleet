@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - BTTBASS",
+            "request": "launch",
+            "mainClass": "com.coldraincn.cdcleet.easy.BTTBASS",
+            "projectName": "cdcleet"
+        }
+    ]
+}
