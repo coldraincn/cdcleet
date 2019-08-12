@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - BTTBASSII",
+            "request": "launch",
+            "mainClass": "com.coldraincn.cdcleet.easy.BTTBASSII",
+            "projectName": "cdcleet"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - BTTBASS",
             "request": "launch",
             "mainClass": "com.coldraincn.cdcleet.easy.BTTBASS",
