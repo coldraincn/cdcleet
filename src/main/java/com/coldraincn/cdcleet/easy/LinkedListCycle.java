@@ -37,16 +37,28 @@ package com.coldraincn.cdcleet.easy;
 链接：https://leetcode-cn.com/problems/linked-list-cycle
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-// public class LinkedListCycle{
-//     public class ListNode {
-//         int val;
-//         ListNode next;
+public class LinkedListCycle{
+    public class ListNode {
+        int val;
+        ListNode next;
 
-//         ListNode(int x) {
-//             val = x;
-//         }
-//     }
-//     public boolean hasCycle(ListNode head) {
-        
-//     }
-// }
+        ListNode(int x) {
+            val = x;
+        }
+    }
+    public boolean hasCycle(ListNode head) {
+        if(head==null||head.next==null){
+            return false;
+        }
+        ListNode low = head;
+        ListNode fast = head.next;
+        while(low!=fast){
+            if(low.next==null||fast.next.next==null){
+                return false;
+            }
+            low=low.next;
+            fast=fast.next.next;
+        }
+        return true;
+    }
+}
