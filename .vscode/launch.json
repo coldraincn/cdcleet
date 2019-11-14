@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - AddBinary",
+            "request": "launch",
+            "mainClass": "com.coldraincn.cdcleet.easy.AddBinary",
+            "projectName": "cdcleet"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - HouseRobber",
             "request": "launch",
             "mainClass": "com.coldraincn.cdcleet.easy.HouseRobber",
