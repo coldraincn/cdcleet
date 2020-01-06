@@ -42,6 +42,28 @@ public class PathSumThree {
     }
 
     public int pathSum(TreeNode root, int sum) {
+        return PathSum(root,sum,new int[1000],0);
 
+    }
+    public int PathSum(TreeNode root,int sum,int[] array,int index){
+        if(root == null){
+            return 0;
+        }
+        int val = root.val;
+        int rootCount =0;
+        if (root.val == sum){
+            rootCount = 1;
+        }
+        for (int i = index-1;i>=0;i--){
+            val = array[i]+val;
+            if(val == sum){
+                rootCount++;
+            }
+        }
+        array[index]=root.val;
+        int leftCount = PathSum(root.left, sum, array, index+1);
+        int rightCount = PathSum(root.right, sum, array, index+1);
+
+        return rootCount+leftCount+rightCount;
     }
 }
