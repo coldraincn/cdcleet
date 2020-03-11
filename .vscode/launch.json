@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - SUCS",
+            "request": "launch",
+            "mainClass": "com.coldraincn.cdcleet.easy.SUCS",
+            "projectName": "cdcleet"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - HammingDistance",
             "request": "launch",
             "mainClass": "com.coldraincn.cdcleet.easy.HammingDistance",
