@@ -2,6 +2,7 @@
     "configurations": [
         {
             "type": "java",
+<<<<<<< HEAD
             "name": "CodeLens (Launch) - RangeSunQuery",
             "request": "launch",
             "mainClass": "com.coldraincn.cdcleet.easy.RangeSunQuery",
@@ -12,6 +13,11 @@
             "name": "CodeLens (Launch) - test",
             "request": "launch",
             "mainClass": "com.coldraincn.cdcleet.test.test",
+=======
+            "name": "CodeLens (Launch) - SUCS",
+            "request": "launch",
+            "mainClass": "com.coldraincn.cdcleet.easy.SUCS",
+>>>>>>> 317790f3c09516c0578124e350ea9c821a5a46b4
             "projectName": "cdcleet"
         },
         {
