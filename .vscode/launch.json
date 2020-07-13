@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - RangeSunQuery",
+            "request": "launch",
+            "mainClass": "com.coldraincn.cdcleet.easy.RangeSunQuery",
+            "projectName": "cdcleet"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - test",
+            "request": "launch",
+            "mainClass": "com.coldraincn.cdcleet.test.test",
+            "projectName": "cdcleet"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - HammingDistance",
             "request": "launch",
             "mainClass": "com.coldraincn.cdcleet.easy.HammingDistance",
