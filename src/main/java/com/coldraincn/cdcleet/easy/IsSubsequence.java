@@ -28,33 +28,33 @@ public class IsSubsequence {
     
     int start = 0;
     public boolean isSubsequence(String s, String t) {
-        // int i = 0;
-        // for (char ch : s.toCharArray()) {
-        //     while (i < t.length() && t.charAt(i) != ch) {
-        //         i++;
-        //     }
-        //     i++;
-        // }
-        // return i <= t.length();
-        char[] s_char = s.toCharArray();
-        boolean[] f = new boolean[s_char.length+1];
-        f[0] = true;
-        
-        for(int i = 1;i<=s_char.length;i++){
-            f[i] = f[i-1]&&nowInStringLeft(t,start,s_char[i-1]);
-        }
-        return f[s_char.length];
-    }
-    public boolean nowInStringLeft(String t,int start,char s){
-        for(int i =start;i<t.length();i++){
-            char now = t.charAt(i);
-            if(now == s){
-                start = i;
-                return true;
+        int i = 0;
+        for (char ch : s.toCharArray()) {
+            while (i < t.length() && t.charAt(i) != ch) {
+                i++;
             }
+            i++;
         }
-        return false;
+        return i <= t.length();
+    //    int[][] ft = new int[t.length()][26];
+    //  for(int a = 0;a<t.length();a++ ){ 
+    //         for(int j = 'a';j<='z';j++){
+    //             for(int i = 0;i<t.length();i++){
+    //                 if(t.charAt(i) == j){
+    //                     ft[a][j] = i;
+    //                     break;
+    //                 }
+    //                 ft[a][j] = -1;
+    //             }           
+    //         }   
+    //  }
+    //  int b = 0;
+    //  for(int i = 0;i<s.length();i++){
+    //     b = ft[b][s.charAt(i)];
+    //  }
+       
     }
+  
     public static void main(String[] args) {
         String s = "axc";
         String t = "ahbgdc";
