@@ -35,7 +35,12 @@ public class TheMasseuse {
         //     dp[i] = Math.max(dp[i-2]+nums[i-1], dp[i-1]); 
         // }
         // return dp[nums.length];
-        
+        if(nums.length == 0){
+            return 0;
+        }
+        if(nums.length == 1){
+            return nums[0];
+        }
         int lastlast = 0;
         int last = nums[0];
         int now = 0;
