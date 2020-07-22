@@ -21,6 +21,15 @@ n范围在[1, 1000000]之间
  */
 public class ThreeStepsProblem {
     public int waysToStep(int n) {
+        int[] dp = new int[n];
+        dp[0] = 0;
+        dp[1] = 1;
+        dp[2] = 2;
 
+
+        return dp[n];
+    }
+    public static void main(String[] args) {
+        System.out.println((Integer.MAX_VALUE+1)%1000000007);
     }
 }
