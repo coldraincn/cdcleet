@@ -18,13 +18,13 @@ package com.coldraincn.cdcleet.medium;
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class MaximalSquare {
-    public int maximalSquare(char[][] matrix) {
-        if(matrix.length == 0){
-            return 0;
-        }
-        int m = matrix.length;
-        int n = matrix[0].length;
+    // public int maximalSquare(char[][] matrix) {
+    //     if(matrix.length == 0){
+    //         return 0;
+    //     }
+    //     int m = matrix.length;
+    //     int n = matrix[0].length;
         
 
-    }
+    // }
 }
