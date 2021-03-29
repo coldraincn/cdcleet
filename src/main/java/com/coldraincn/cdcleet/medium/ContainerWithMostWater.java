@@ -33,8 +33,26 @@ n = height.length
 链接：https://leetcode-cn.com/problems/container-with-most-water
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-//  class  ContainerWithMostWater {
-//     public int maxArea(int[] height) {
-
-//     }
-// }
+ class  ContainerWithMostWater {
+    public int maxArea(int[] height) {
+        int len = height.length; 
+        int max = Math.min(height[0], height[1]) *1;
+        if(len == 2){
+            return max;
+        }
+        for(int i = 3;i <= len ;i++){
+            int innerMax = 0;
+            for(int j = 0;j<i-1;j++){
+                innerMax = Math.max(innerMax, Math.min(height[j], height[i-1]) *(i-1-j));
+            }
+            max = Math.max(max, innerMax);
+        }
+        return max;
+    }
+    public static void main(String[] args) {
+        var dd = new ContainerWithMostWater();
+        int[] heights = {1,2,1};
+        var result = dd.maxArea(heights);
+        System.out.println(result);
+    }
+}
