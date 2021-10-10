@@ -49,6 +49,7 @@ public class Permutations {
             getResult(nums, records);
             records.remove(nums[i]);
         }
+        ret  
        
 
     }

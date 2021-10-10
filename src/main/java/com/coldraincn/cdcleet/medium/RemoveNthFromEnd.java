@@ -42,7 +42,22 @@ class RemoveNthFromEnd {
         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
     public ListNode removeNthFromEnd(ListNode head, int n) {
-     
-      
+  
+        var fast = head;
+        var slow = head;
+        while(n>0){
+          fast = fast.next;
+          n--;
+        }
+        if(fast == null){
+            return head.next;
+        }
+        fast = fast.next;
+        while(fast != null){
+          fast = fast.next;
+          slow = slow.next;
+        }
+        slow.next = slow.next.next;
+        return head;
     }
 }
