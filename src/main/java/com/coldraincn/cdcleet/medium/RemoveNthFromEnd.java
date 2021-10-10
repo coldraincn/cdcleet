@@ -43,31 +43,6 @@ class RemoveNthFromEnd {
     }
     public ListNode removeNthFromEnd(ListNode head, int n) {
      
-        var hash = new HashMap<Integer,ListNode>();
-        ListNode now = head;
-        int i = 0;
-        while(now != null){
-            hash.put(i, now);
-            i++;
-            now = now.next;
-        }
-        int deleteIndex = i - n;
-        
-        if(deleteIndex == 0){
-            ListNode de = head;
-            head =  head.next;
-            de = null;
-            
-        }else if(deleteIndex == i - 1){
-            ListNode de = hash.get(deleteIndex);
-            de = null;
-        }else{
-            ListNode de = hash.get(deleteIndex);
-            ListNode last = hash.get(deleteIndex - 1);
-            ListNode next = hash.get(deleteIndex + 1);
-            last.next = next;
-            de = null;
-        }
-       return head;
+      
     }
 }
