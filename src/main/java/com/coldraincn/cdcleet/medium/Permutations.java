@@ -33,6 +33,7 @@ nums 中的所有整数 互不相同
 public class Permutations {
     List<List<Integer>> result = new ArrayList<List<Integer>>();
     public List<List<Integer>> permute(int[] nums) {
+        
         var records = new ArrayList<Integer>();
         getResult(nums,records);
         return result;
@@ -40,6 +41,7 @@ public class Permutations {
     private void getResult(int[] nums,List<Integer> records){
         if(records.size() == nums.length){
             result.add(new ArrayList<>(records));
+            return;
         }
         for(int i = 0;i<nums.length;i++){
             if(records.contains(nums[i])){
@@ -47,10 +49,14 @@ public class Permutations {
             }
             records.add(nums[i]);
             getResult(nums, records);
-            records.remove(nums[i]);
-        }
-        ret  
-       
+            records.remove(records.size()-1);
+        }       
 
+    }
+    public static void main(String[] args) {
+        var sss = new Permutations();
+        int[] aaa = {1,2,3};
+        var result = sss.permute(aaa);
+        System.out.println(result);
     }
 }
