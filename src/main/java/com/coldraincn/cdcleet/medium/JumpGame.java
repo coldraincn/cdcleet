@@ -32,6 +32,24 @@ package com.coldraincn.cdcleet.medium;
  */
 public class JumpGame {
     public boolean canJump(int[] nums) {
+        int maxJump = 0;
+        for(int i = 0;i<nums.length && maxJump>=i;i++){
+            if(maxJump>=i){
+                int jumpIndex = i+nums[i];
+            maxJump = jumpIndex>=maxJump ? jumpIndex : maxJump;
+            if(maxJump >= nums.length-1){
+                return true;
+              }
+            }
+            
+        }
+        return false;
+  
+    }
 
+    public static void main(String[] args) {
+        JumpGame  jg = new JumpGame();
+        int[] aa = {3,2,1,0,4};
+        System.out.println(jg.canJump(aa));
     }
 }
