@@ -1,4 +1,7 @@
 package com.coldraincn.cdcleet.medium;
+
+import java.util.Arrays;
+
 /**
  * 给定一个包含红色、白色和蓝色，一共 n 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。
 
@@ -42,6 +45,31 @@ nums[i] 为 0、1 或 2
  */
 public class SortColors {
     public void sortColors(int[] nums) {
-
+        int[] counts = new int[3];
+        for(int i = 0; i<nums.length;i++){
+            switch(nums[i]){
+                case 0:counts[0]++;break;
+                case 1:counts[1]++;break;
+                case 2:counts[2]++;break;
+            }
+        }
+        int num0 = counts[0];
+        int num1 = counts[1];
+        int num2 = counts[2];
+        for(int i = 0;i<num0;i++){
+            nums[i] = 0;
+        }
+        for(int i = num0;i<num0+num1;i++){
+            nums[i] = 1;
+        }
+        for(int i = num0+num1;i<nums.length;i++){
+            nums[i] = 2;
+        }
+        System.out.println(Arrays.toString(nums));
+    } 
+    public static void main(String[] args) {
+        int[] aaa = {2,0,1};
+        SortColors sc = new SortColors();
+        sc.sortColors(aaa);
     }
 }
