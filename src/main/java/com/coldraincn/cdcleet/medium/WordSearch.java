@@ -36,7 +36,55 @@ board 和 word 仅由大小写英文字母组成
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class WordSearch {
+    private static final int[][] DIRECTIONS = new int[][]{{1,0},{0,1},{-1,0},{0,-1}};
+    private int rows, cols;
+    private int len;
+    private boolean[][] marked;
+    private char[][] board;
+    private char[] wordArray;
     public boolean exist(char[][] board, String word) {
+        this.rows = board.length;
+        if (rows == 0) return false;
+        this.cols = board[0].length;
+        if (cols == 0) return false;
 
+        this.marked = new boolean[rows][cols];
+        this.board = board;
+        this.wordArray = word.toCharArray();
+        this.len = word.length();
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (dfs(i, j, 0)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    private boolean dfs(int x, int y, int begin) {
+        if (board[x][y] != wordArray[begin]) {
+            return false;
+        }
+        if (begin == len - 1) {
+            return true;
+        }
+
+        marked[x][y] = true;
+        for (int[] directions: DIRECTIONS) {
+            int newX = x + directions[0];
+            int newY = y + directions[1];
+            if (inMap(newX, newY) && !marked[newX][newY]) {
+                if (dfs(newX, newY, begin + 1)) {
+                    return true;
+                }
+            }
+        }
+        marked[x][y] = false;
+        return false;
+    }
+
+    private boolean inMap(int x, int y) {
+        return x >= 0 && x < rows && y >= 0 && y < cols;
     }
 }
