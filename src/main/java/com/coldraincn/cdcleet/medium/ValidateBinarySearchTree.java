@@ -48,7 +48,31 @@ package com.coldraincn.cdcleet.medium;
  * }
  */
 public class ValidateBinarySearchTree {
+        public class TreeNode {
+             int val;
+             TreeNode left;
+             TreeNode right;
+             TreeNode() {}
+             TreeNode(int val) { this.val = val; }
+             TreeNode(int val, TreeNode left, TreeNode right) {
+                 this.val = val;
+                 this.left = left;
+                 this.right = right;
+             }
+         }
     public boolean isValidBST(TreeNode root) {
+  
+        return valid(root,Integer.MIN_VALUE,Integer.MAX_VALUE);
 
+    }  
+    private  boolean valid(TreeNode node,int min,int max){
+        if(node == null){
+            return true;
+        }
+  
+        if(node.left.val > min || node.right.val< max){
+            return false;
+        }
+        return valid(node.left, min,node.val) && valid(node.right,node.val, max);
     }
 }
