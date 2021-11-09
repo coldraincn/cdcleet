@@ -1,4 +1,9 @@
 package com.coldraincn.cdcleet.medium;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  * 给你一个字符串 s 和一个字符串列表 wordDict 作为字典，判定 s 是否可以由空格拆分为一个或多个在字典中出现的单词。
 
@@ -37,6 +42,16 @@ wordDict 中的所有字符串 互不相同
  */
 public class WordBreak {
     public boolean wordBreak(String s, List<String> wordDict) {
-
+        Set<String> strSet = new HashSet<>(wordDict);
+        boolean[] dp = new boolean[s.length()+1];
+        dp[0] = true;
+        for(int i = 0;i<s.length();i++){
+            for(int j = i;j<s.length();j++){
+                if(dp[i] && strSet.contains(s.substring(i, j+1))){
+                    dp[j+1] = true;
+                }
+            }
+        }
+        return dp[s.length()];
     }
 }
