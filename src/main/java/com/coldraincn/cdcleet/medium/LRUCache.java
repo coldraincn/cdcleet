@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import javax.xml.crypto.Data;
+
 /**
  * 运用你所掌握的数据结构，设计和实现一个  LRU (最近最少使用) 缓存机制 。
 实现 LRUCache 类：
@@ -50,20 +52,68 @@ lRUCache.get(4);    // 返回 4
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class LRUCache {
-    Queue<Integer> quData =new LinkedList<Integer>();
-    HashMap<Integer> data;
-    public LRUCache(int capacity) {
+    private int size;
+    class DataNode {
+        int key;
+        int val;
+        DataNode next;
+        DataNode prev;
+        public DataNode(int key,int val){
+            this.key = key;
+            this.val = val;
+        }
+        DataNode remove() {
+            prev.next = next;
+            next.prev = prev;
+            next = null;
+            prev = null;
+            return this;
+        }
 
+        void insert(DataNode node) {
+            node.next = next;
+            node.prev = this;
+            next.prev = node;
+            next = node;
+        }
+    }
+    Queue<DataNode> quData =new LinkedList<DataNode>();
+    HashMap<Integer,DataNode> hashData;
+    public LRUCache(int capacity) {
+        size = capacity;
+        hashData = new HashMap<>(capacity);
     }
     
     public int get(int key) {
-
+        DataNode result = hashData.get(key);
+        return result == null ? -1: result.val;
     }
     
     public void put(int key, int value) {
+        DataNode insertData = new DataNode(key,value);
+        if(hashData.get(key) != null){
+            hashData.put(key, insertData);
+            quData.remove(hashData.get(key));
+            quData.offer(insertData);
 
+        }else{
+            if(quData.size()<size){
+                size++;
+                hashData.put(key, insertData);
+                quData.offer(insertData);
+            }else{
+                DataNode last = quData.poll();
+                int lastKey = last.key;
+                hashData.remove(lastKey);
+                hashData.put(key, insertData);
+                quData.remove(hashData.get(key));
+                quData.offer(insertData);
+            }
+        }
+        
     }
 }
+
 /**
  * Your LRUCache object will be instantiated and called as such:
  * LRUCache obj = new LRUCache(capacity);
