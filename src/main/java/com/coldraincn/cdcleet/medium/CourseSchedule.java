@@ -35,6 +35,9 @@ prerequisites[i] 中的所有课程对 互不相同
  */
 public class CourseSchedule {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-
+        int sumCount = prerequisites.length;
+        if(numCourses<2){
+            return false;
+        }
     }
 }
