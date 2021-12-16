@@ -35,6 +35,25 @@ n == matrix[i].length
  */
 public class Searcha2DMatrixII {
     public boolean searchMatrix(int[][] matrix, int target) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int i = m - 1;
+        int j = 0;
+        while(i>=0){
+            while(j<n){
+                if(target == matrix[i][j]){
+                    return true;
+                } 
+                if(target > matrix[i][j]){
+                    i--;
+                }else{
+                    j++;
+                }
+            }
+        }
+        return false;
+    }
+    public static void main(String[] args) {
         
     }
 }
