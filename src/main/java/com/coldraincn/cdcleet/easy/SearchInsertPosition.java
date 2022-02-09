@@ -24,14 +24,20 @@ package com.coldraincn.cdcleet.easy;
 
 public class SearchInsertPosition{
     public int searchInsert(int[] nums, int target) {
-        int length=nums.length;
-        int i;
-        for(i=0;i<length;i++){
-            if(nums[i]>=target){
-                return i;
+        int low = 0;
+        int high=nums.length - 1;
+        while(low<high){
+            int mid = low + (high - low)/2;
+            if(nums[mid] == target){
+                return mid;
+            }else if(nums[mid] < target){
+                low = mid+1;
+            }else{
+                high = mid-1;
             }
         }
-        return i;
+        return high+1;
+        
         
     }
     public static void main(String[] args){
