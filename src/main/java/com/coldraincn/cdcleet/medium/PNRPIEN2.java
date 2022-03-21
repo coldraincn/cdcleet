@@ -61,6 +61,33 @@ public class PNRPIEN2 {
     };
     public Node connect(Node root) {
         Queue<Node> qu = new LinkedList<>();
+        if(root == null){
+            return null;
+        }
+        qu.offer(root);
+        while(!qu.isEmpty()){
+            int size = qu.size();
+            
+
+            for(int i = 0;i < size;i++){
+                Node first = qu.poll();
+                if(i<size-1){
+                    first.next = qu.peek();
+                }
+                
+                if(first.left != null){
+                    qu.offer(first.left);
+                }
+                if(first.right != null){
+                    qu.offer(first.right);
+                }
+                first = first.next;
+            }
+
+
+        }
+        return root;
     }
+
     
 }
